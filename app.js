@@ -10,7 +10,7 @@ $(document).ready(function () {
                 $( href ).toggleClass( 'flied' );
             }
             $('html, body').animate({
-                scrollTop: $( href ).offset().top - 75
+                scrollTop: $( href ).offset().top;
             }, 400, "swing", function () {
                 if(!timeout) $( href + ' .more-text').slideToggle();
                 timeout = setTimeout(function () {
