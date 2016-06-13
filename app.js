@@ -15,7 +15,7 @@ $(document).ready(function () {
                 if(!timeout) $( href + ' .more-text').slideToggle();
                 timeout = setTimeout(function () {
                     timeout = false;
-                }, 500)
+                }, 500);
             });
             return false;
         }
