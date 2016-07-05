@@ -68,6 +68,8 @@ p {
   padding: 0 20%;
   height: 700px;
   background: #ffffff; }
+  .header-box p {
+    padding: 0 50px; }
   .header-box h1 {
     font-weight: 700;
     font-size: 80px;
