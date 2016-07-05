@@ -34,9 +34,11 @@ body {
   font-size: 20px;
   line-height: 20px;
   color: #3c3d46; }
-
-p {
-  font-family: "Lora", "Helvetica", "Open Sans"; }
+  body small {
+    color: #ffffff;
+    font-weight: inherit; }
+  body p {
+    font-family: "Lora", "Helvetica", "Open Sans"; }
 
 .elements {
   padding: 0 5%;
@@ -65,7 +67,7 @@ p {
 
 /* Header Box */
 .header-box {
-  padding: 0 20%;
+  padding: 0 20% F;
   height: 700px;
   background: #ffffff; }
   .header-box p {
