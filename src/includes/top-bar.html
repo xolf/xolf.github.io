@@ -1,0 +1,5 @@
+<div class="items">
+    {% for link in menu %}
+        <a href="{% if link.site_url == true %}{{ site.url }}{% endif %}{{ link.url }}" class="{{ ul_style | default('bar-item') }}">{{ link.name }}</a>
+    {% endfor %}
+</div>

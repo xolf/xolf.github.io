@@ -1,0 +1,36 @@
+---
+layout: "page"
+title: "Welcome Spresso theme"
+list_mode: false
+
+generator: "pagination"
+provider: "site.posts"
+max_page: 5
+sort_by: "date"
+---
+<div class="page-header" style="background-image: url({{ site.url }}/assets/img/office.jpg)">
+    <h1>{{ site.title }}</h1>
+    <hr>
+    <h2>{{ site.description }}</h2>
+</div>
+
+<div class="container spresso-wrap">
+    {% if page.list_mode %}
+        {% include "posts-list.html" with { posts: site.posts } %}
+
+        {% if site.posts | length < 1 %}
+            <p>Until now, there is no posts. :(</p>
+        {% endif %}
+    {% else %}
+        {% for post in page.pagination.items %}
+            {% include "post.html" %}
+        {% else %}
+            <div class="page-header">
+              <h1>Welcome <small>to the blog</small></h1>
+            </div>
+            <p>Until now, there is no posts. :(</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% include "paginator.html" %}

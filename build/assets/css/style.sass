@@ -1,0 +1,95 @@
+$navFontsize: 15px
+$navPadding: 25px
+$black: #323A45
+$white: #f9fdff
+$green: #29c35a
+
+body
+  font-family: 'Source Sans Pro', sans-serif
+
+  .page-header
+    padding: 250px 0
+    background-size: cover
+    background-position: center top
+    background-attachment: fixed
+
+    h1, h2
+      text-align: center
+      color: $white
+
+    h1
+      font-weight: 600
+      font-size: $navFontsize * 5
+
+    h2
+      font-weight: 300
+      font-size: $navFontsize * 4
+
+    hr
+      margin: 0 25%
+      border-color: $white
+
+  .info-bar
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    background-color: $black
+    height: 25px
+
+    .items
+      height: 25px
+      float: right
+
+      a
+        display: inline-block
+        margin: 5px 10px
+        color: $white
+        font-size: 12px
+        &:hover
+          text-decoration: underline
+
+  .navbar-fixed-top
+    top: 25px
+
+  .navbar
+    font-size: $navFontsize
+    min-height: $navPadding * 2 + $navFontsize
+
+    .navbar-brand
+      padding: $navPadding / 2
+
+      img
+        height: $navFontsize + $navPadding
+
+    .navbar-nav
+      float: right
+
+      li
+
+        a
+          text-transform: uppercase
+          color: $black
+          padding: $navPadding $navFontsize * 2
+
+          &:hover
+            color: $green
+
+
+  .navbar-default
+    background-color: #ffffff
+    border: none
+
+@media (max-width: 768px)
+  body
+
+    .info-bar
+      display: none
+
+    .navbar-fixed-top
+      top: 0
+
+    .navbar
+
+      .navbar-nav
+        float: none
