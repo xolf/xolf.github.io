@@ -1,36 +1,78 @@
 ---
 layout: "page"
-title: "Welcome Spresso theme"
-list_mode: false
-
-generator: "pagination"
-provider: "site.posts"
-max_page: 5
-sort_by: "date"
+title: "Ihr Webauftritt? Unsere Aufgabe!"
 ---
 <div class="page-header" style="background-image: url({{ site.url }}/assets/img/office.jpg)">
     <h1>{{ site.title }}</h1>
     <hr>
     <h2>{{ site.description }}</h2>
 </div>
+<script>
 
-<div class="container spresso-wrap">
-    {% if page.list_mode %}
-        {% include "posts-list.html" with { posts: site.posts } %}
+</script>
+<div class="container">
 
-        {% if site.posts | length < 1 %}
-            <p>Until now, there is no posts. :(</p>
-        {% endif %}
-    {% else %}
-        {% for post in page.pagination.items %}
-            {% include "post.html" %}
-        {% else %}
-            <div class="page-header">
-              <h1>Welcome <small>to the blog</small></h1>
-            </div>
-            <p>Until now, there is no posts. :(</p>
-        {% endfor %}
-    {% endif %}
+    <div class="row offering">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <h2>Was bietet xolf?</h2>
+            <p>Wir bieten Ihnen und Ihren Kunden einen professionellen, zuverlässigen und benutzerfreundlichen Webauftritt. So halten wir Ihnen den Rücken frei, während Sie sich um das Wesentliche kümmern können.</p>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+    <hr class="breaker">
+    <div class="row customer">
+        <h2>xolf Kunden<br><br></h2>
+        <div class="col-md-4">
+            <h3 class="bold"><br><br><br><br><br><br>Luckdrum</h3>
+            <p class="text-left">« <i><small>Wir konnten am Anfang selber entscheiden, wie die Webseite aussehen soll. Durch das "Managed Hosting" wurde uns dann auch die Bereitstellung sorgenlos abgenommen. Wir sind mit der Gestaltung unser Webseite sehr zufrieden.</small></i> » - <small>Richmond Looven</small></p>
+        </div>
+        <div class="col-md-8">
+            <img src="{{ site.url }}/assets/img/luckdrum.jpg" class="img-responsive img-border">
+        </div>
+    </div>
+    <hr class="breaker">
+    <div class="row features">
+        <h2>Ihre Vorteile</h2>
+        <div class="col-md-4">
+            <i class="fa fa-5x fa-user-plus"></i>
+            <h3>Wachstum Erzielen</h3>
+            <p>Lokaler Einzelhandel oder großes Unternehmen? So gut wie Jeder kann mit einem gutem Webauftritt seinen regional und/oder international Kundenstamm ausbauen.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-5x fa-server"></i>
+            <h3>Managed Hosting</h3>
+            <p>Probleme mit der Verwaltung ihrer Systeme? Die Begriffe "SSH", "FTP" oder "SSL" sagen Ihnen wenig bis gar nichts. Dann übernehmen wir die Verwaltung ihrer Server.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-5x fa-object-group"></i>
+            <h3>Eigenes Design</h3>
+            <p>Genaue Vorstellung von einem Design? Wir setzten Ihre Design in eine eigene Webseite um. Sollten Sie keine Ideen haben für ein Design, kümmern wir uns gerne um den Entwurf.</p>
+        </div>
+    </div>
+    <hr class="breaker">
 </div>
-
-{% include "paginator.html" %}
+<div class="contact" id="kontakt" style="background-image: url({{ site.url }}/assets/img/block.jpg)">
+    <div class="container">
+        <h2 class="bold">Kontakt</h2>
+        <hr>
+        <h3>Scheuen Sie sich nicht uns anzusprechen!</h3>
+        <div class="row input-field background-black">
+            <form action="https://formspree.io/contact@xolf.info" method="POST">
+                <div class="col-md-4">
+                    <input type="text" name="name" placeholder="Ihr Name">
+                </div>
+                <div class="col-md-4">
+                    <input type="email" name="_replyto" placeholder="Ihre E-Mail Adresse">
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" value="In Kontakt treten!">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

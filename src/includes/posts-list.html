@@ -1,14 +1,9 @@
-<div class="page-header" style="background-image: url({{ site.url }}/assets/img/office.jpg)">
-    <h1>{{ site.title }}</h1>
-</div>
-
 {% if posts | length > 0 %}
-<ul class="posts-list">
+<ul class="list-group">
     {% for post in posts %}
-    <li class="posts-list-item">
-        <a href="{{ post.url }}">
-            <h4>{{ post.title }}</h4>
-        </a>
+    <li class="list-group-item">
+        <h3><a href="{{ post.url }}">{{ post.title }}</a> <br><small><time pubdate="pubdate">{{ post.date | date('Y-m-d') }}</time></small></h3>
+        <h4>{{ post.description }}</h4>
     </li>
     {% endfor %}
 </ul>

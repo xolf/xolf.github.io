@@ -12,13 +12,27 @@ comments:
     enabled: false
     disqus_shortname: ""
 
+collections:
+  posts:
+    output: true
+    sort_by: 'date'
+    sort_type: 'descending'
+
+  produkte:
+    output: true
+    title: "Hauseigene Produkte"
+
+  kunden:
+    output: true
+    title: "Zufriedene Kunden"
+
 # Information about author
 author:
-    name: "Florian Theimer"
+    name: "xolf"
 
     # Social networks
-    twitter: "spress_cms"
-    github: "https://github.com/spress/Spress"
+    twitter:
+    github:
     bitbucket:
     facebook:
     linkedin:
@@ -53,14 +67,16 @@ bing_verify:
 top_bar:
     - { name: "+49 (0)89 4117 3607", url: "tel:+498941173607" }
     - { name: Support, url: "/support" }
-    - { name: Kontakt, url: "/kontakt" }
-    - { name: "Über uns", url: "/ueber-uns" }
+    - { name: Kontakt, url: "/#kontakt" }
+    #- { name: "Über uns", url: "/ueber-uns" }
 
 # Page menus
 top_menu:
     - { name: Startseite, url: "/" }
     - { name: Produkte, url: "/produkte" }
     - { name: Kunden, url: "/kunden" }
+    #- { name: Referenzen, url: "/referenzen" }
+    - { name: Blog, url: "/blog" }
 
 bottom_menu:
-    - { name: "Go to Spresso theme web", url: "https://github.com/yosymfony/Spress-theme-spresso" }
+    - { name: "Anfang", url: "#" }

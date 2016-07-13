@@ -1,0 +1,31 @@
+---
+layout: "page"
+title: "Zufriedene Kunden"
+
+generator: "pagination"
+provider: "site.kunden"
+max_page: 9
+sort_by: "date"
+---
+<div class="page-header smaller" style="background-image: url({{ site.url }}/assets/img/office.jpg)">
+	<h1>Kunden</h1>
+</div>
+<div class="container">
+	<hr class="breaker">
+	<h3 class="text-center lighter">xolf hat einige zufriedene Kunden, welche nur posivites über die Realisiserung und Bereitstellung ihrer Webseite sagen können.</h3>
+
+	<div class="row">
+		{% for produkt in page.pagination.items %}
+			<div class="col-md-4 project-box">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h2 class="bold text-center">{{ produkt.title }}</h2>
+						<p>{{ produkt.description }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% include "paginator.html" %}
