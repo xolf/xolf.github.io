@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>xolf</title>
+        <link></link>
+        <description>RSS feed for xolf</description>
+        <atom:link href="/rss.xml" rel="self" type="application/rss+xml" />
+                    <item>
+                <title>xolf geht online!</title>
+                <description><![CDATA[<h1>Herzlich willkommen bei xolf</h1>
+
+<p>Pünktlich zum sommerlichen Regenstart in Bayern starten wir unsere neue Homepage.</p>
+
+<p>Hiermit heiße ich sie, Florian Theimer (Technischer Leiter - xolf), herzlich auf unseren neuen Webseite willkommen!</p>
+]]></description>
+                <link>/articles/2016/07/13/xolf-geht-online</link>
+                <pubDate>Wed, 13 Jul 2016 00:00:00 +0000</pubDate>
+                <guid>/articles/2016/07/13/xolf-geht-online</guid>
+            </item>
+            </channel>
+</rss>

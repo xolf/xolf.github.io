@@ -1,0 +1,160 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 15px; }
+  body.shadow-nav .info-bar {
+    display: none; }
+  body.shadow-nav .navbar-default {
+    background-color: transparent; }
+  body.shadow-nav .navbar .navbar-nav li a {
+    color: #f9fdff; }
+  body .project-box img {
+    width: 100%;
+    height: auto; }
+  body .input-field {
+    padding: 25px; }
+    body .input-field.background-black {
+      background-color: rgba(0, 0, 0, 0.5); }
+    body .input-field input {
+      outline: none;
+      font-size: 22.5px;
+      font-weight: 300;
+      padding: 7.5px 15px;
+      color: #323A45;
+      display: block;
+      width: 100%;
+      border: 2px solid;
+      border-radius: 4px;
+      border-color: transparent;
+      margin: 5px 0; }
+      body .input-field input[type=submit] {
+        background-color: #29c35a;
+        color: #f9fdff; }
+        body .input-field input[type=submit]:focus {
+          border-color: transparent; }
+      body .input-field input:focus {
+        border-color: #29c35a; }
+  body .bold {
+    font-weight: 600 !important; }
+  body .lighter {
+    font-weight: 300 !important; }
+  body .color-black {
+    color: #323A45; }
+  body .no-underline {
+    text-decoration: none !important; }
+  body .img-border {
+    border: 1px solid #e5eaec; }
+  body .img-logo {
+    width: 50px;
+    height: auto; }
+  body .page-header, body .contact {
+    padding: 250px 0;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    margin: 0; }
+    body .page-header.smaller, body .contact.smaller {
+      padding: 100px 0; }
+    body .page-header a, body .contact a {
+      color: #f9fdff;
+      text-decoration: none; }
+    body .page-header h1, body .page-header h2, body .page-header h3, body .contact h1, body .contact h2, body .contact h3 {
+      text-align: center; }
+      body .page-header h1, body .page-header h1:hover, body .page-header h1:active, body .page-header h2, body .page-header h2:hover, body .page-header h2:active, body .page-header h3, body .page-header h3:hover, body .page-header h3:active, body .contact h1, body .contact h1:hover, body .contact h1:active, body .contact h2, body .contact h2:hover, body .contact h2:active, body .contact h3, body .contact h3:hover, body .contact h3:active {
+        color: #f9fdff; }
+    body .page-header h1, body .contact h1 {
+      font-weight: 600;
+      font-size: 75px; }
+    body .page-header h2, body .contact h2 {
+      font-weight: 300;
+      font-size: 60px; }
+    body .page-header h3, body .contact h3 {
+      font-weight: 300;
+      font-size: 30px; }
+    body .page-header hr, body .contact hr {
+      margin: 0 25%;
+      border-color: #f9fdff; }
+  body .info-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #323A45;
+    height: 25px;
+    z-index: 1030; }
+    body .info-bar .items {
+      height: 25px;
+      float: right; }
+      body .info-bar .items a {
+        display: inline-block;
+        margin: 5px 10px;
+        color: #f9fdff;
+        font-size: 12px; }
+        body .info-bar .items a:hover {
+          text-decoration: underline; }
+  body .navbar-fixed-top {
+    top: 25px; }
+  body .navbar {
+    font-size: 15px;
+    min-height: 65px; }
+    body .navbar .navbar-collapse {
+      border: none; }
+    body .navbar .navbar-brand {
+      padding: 12.5px; }
+      body .navbar .navbar-brand img {
+        height: 40px; }
+    body .navbar .navbar-nav {
+      float: right; }
+      body .navbar .navbar-nav li a {
+        text-transform: uppercase;
+        color: #323A45;
+        padding: 25px 30px; }
+        body .navbar .navbar-nav li a:hover {
+          color: #29c35a; }
+  body .navbar-default {
+    background-color: #ffffff;
+    border: none; }
+  body .offering, body .features, body .customer {
+    padding: 30px 0; }
+    body .offering h2, body .offering p, body .features h2, body .features p, body .customer h2, body .customer p {
+      text-align: center; }
+      body .offering h2.text-left, body .offering p.text-left, body .features h2.text-left, body .features p.text-left, body .customer h2.text-left, body .customer p.text-left {
+        text-align: left; }
+    body .offering h2, body .features h2, body .customer h2 {
+      margin: 10px 0 30px 0;
+      font-size: 45px;
+      font-weight: 200; }
+    body .offering p, body .features p, body .customer p {
+      font-size: 22.5px;
+      font-weight: 300; }
+  body .features i, body .features h3 {
+    display: block;
+    text-align: center; }
+  body .features h3 {
+    font-size: 22.5px;
+    font-weight: 500;
+    margin: 20px 0; }
+  body .features p {
+    font-size: 16.5px; }
+  body .features i {
+    color: #4b5cbb; }
+  body hr.breaker {
+    border-color: #29c35a;
+    border-width: 3px;
+    width: 100px; }
+
+@media (max-width: 768px) {
+  body .page-header, body .contact {
+    padding: 70px 0; }
+    body .page-header h2, body .contact h2 {
+      font-size: 22.5px; }
+    body .page-header h3, body .contact h3 {
+      font-size: 18.75px; }
+  body .info-bar {
+    display: none; }
+  body .navbar-fixed-top {
+    top: 0; }
+  body .navbar .navbar-nav {
+    float: none; } }
+
+/*# sourceMappingURL=style.css.map */
