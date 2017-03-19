@@ -8,6 +8,14 @@ body {
     background-color: transparent; }
   body.shadow-nav .navbar .navbar-nav li a {
     color: #f9fdff; }
+  body .blog-content {
+    max-width: 900px;
+    margin: auto;
+    display: block; }
+    body .blog-content .blog-text {
+      font-size: 18px; }
+      body .blog-content .blog-text h1, body .blog-content .blog-text h2, body .blog-content .blog-text h3, body .blog-content .blog-text h4 {
+        font-weight: bold; }
   body .project-box img {
     width: 100%;
     height: auto; }

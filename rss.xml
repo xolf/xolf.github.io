@@ -6,6 +6,33 @@
         <description>RSS feed for xolf</description>
         <atom:link href="https://xolf.info/rss.xml" rel="self" type="application/rss+xml" />
                     <item>
+                <title>Homeworker veröffentlicht die B2S-Lösung</title>
+                <description><![CDATA[<p>Mit B2S können Schulen ihre Informationen, wie:</p>
+
+<ul>
+<li>Termine</li>
+<li>Neuigkeiten</li>
+<li>Aktuelle Benachrichtigungen</li>
+<li>RSS-Feeds</li>
+<li>Wetter</li>
+</ul>
+
+<p>in Homeworker eintragen und diese werden dann bei allen Schüler in Homeworker angezeigt.</p>
+
+<p>Zusätzlich wird automatisch aus diesen Informationen ein Infomonitor erstellt, worüber alle Schüler im Schulhaus informiert werden.</p>
+
+<p>Durch die Aktivierung des B2S Accounts besteht dann auch die Möglichkeit die Homeworker-Seite zu moderieren und mit Beiträgen zu füllen.
+Hierbei werden auch alle relevanten Termine und Artikel angezeigt und für Suchmaschinen öffentlich gemacht.</p>
+
+<p>Im Ganzen bietet B2S, die perfekte Möglichkeit für einen Kommunikationskanal zwischen der Schule und den Schülern, sowie eine gute Internetpräsenz im Vergleich zu eigenen Lösungen.</p>
+
+<p>Der Vertrieb wird durch Herr Y. übernommen.</p>
+]]></description>
+                <link>https://xolf.info/mitteilung/2017/03/20/homeworker-veroffentlicht-die-b2s-losung</link>
+                <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+                <guid>https://xolf.info/mitteilung/2017/03/20/homeworker-veroffentlicht-die-b2s-losung</guid>
+            </item>
+                    <item>
                 <title>xolf geht online!</title>
                 <description><![CDATA[<h1>Herzlich willkommen bei xolf</h1>
 
