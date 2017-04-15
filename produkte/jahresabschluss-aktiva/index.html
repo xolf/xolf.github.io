@@ -2,18 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-<title>Gesundheitshaus Baierbrunn &ndash; xolf</title>
+<title>Jahresabschluss Rechner &ndash; xolf</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Die Webseite des Gesundheitshaus Baierbrunn wurde von xolf entwickelt und verwaltet">
+<meta name="description" content="Webagentur aus Baierbrunn">
 <meta name="author" content="xolf">
 <meta name="generator" content="Spress v2.1.3">
 
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gesundheitshaus Baierbrunn">
-<meta property="og:description" content="Die Webseite des Gesundheitshaus Baierbrunn wurde von xolf entwickelt und verwaltet">
-<meta property="og:url" content="https://xolf.info/kunden/gesundheitshaus-baierbrunn">
+<meta property="og:title" content="Jahresabschluss Rechner">
+<meta property="og:description" content="Webagentur aus Baierbrunn">
+<meta property="og:url" content="https://xolf.info/produkte/jahresabschluss-aktiva">
 <meta property="og:site_name" content="xolf">
 
 <link href="https://xolf.info/rss.xml" type="application/rss+xml" rel="alternate" title="xolf Feed">
@@ -93,30 +93,266 @@
     </div>
 </div>
 
-            <article class="post">
+            <div class="page-header smaller">
+    <h1>Jahresabschluss Rechner</h1>
+</div>
 
-    <div class="page-header smaller">
-        <a href="/kunden/gesundheitshaus-baierbrunn"><h1>Gesundheitshaus Baierbrunn</h1></a>
-    </div>
-    <div class="container">
-        <div class="blog-content">
-            <br />
-            <br />
-            <div class="blog-text">
-                
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.27/pdfmake.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.27/vfs_fonts.js'></script>
 
-            </div>
-        </div>
 
-                    <footer>
-                <p class="text-muted">
-                    Veröffentlicht am <time pubdate="pubdate">15.04.2017</time>
-                </p>
+<iframe id="preview" style="width: 100%; height: 800px" frameborder="0"></iframe>
 
-                            </footer>
+<script>
 
-                        </div>
-</article>
+    function fp(price) {
+        if(typeof price == 'number') {
+            return (price.toFixed(2)+'').replace('.', ',').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        }
+
+        return price;
+    }
+
+    var data = {
+        company: 'xolf Unternehmergesellschaft (haftungsbeschränkt) Baierbrunn',
+        signature: 'Baierbrunn, den 15. März 2017',
+        from: '02.05.2016',
+        to: '31.12.2016',
+        to_pretty: '31. Dezember 2016'
+    };
+
+    var aktiva = [
+        ['B. Umlaufvermögen',
+            [
+                ['IV. Kassenbestand, Guthaben bei Kreditinstituten', 144.59, 500]
+            ]
+        ]
+    ];
+
+
+    var passiva = [
+        ['A. Eigenkapital',
+            [
+                ['I. Gezeichnetes Kapital', 500, 500],
+                ['V. Jahresüberschuss/Jahresfehbetrag', -449.41, 0]
+            ]
+        ],
+        ['C. Verbindlichkeiten',
+            [
+                ['1. Sonstige Verbindlichkeiten',  94, 0]
+            ]
+        ]
+    ];
+
+    function formatIvas(iva, text) {
+        var arr = [];
+        arr.push([{text: text, style: 'tableHeader', bold: true}, '', {text: data.to, style: 'tableHeader', 'alignment': 'right'}, {text: data.from, style: 'tableHeader', 'alignment': 'right'}]);
+        arr.push(['', '', {text:'EUR',alignment:'right'}, {text:'EUR',alignment:'right'}]);
+        window.sum = {
+            last: 0,
+            now: 0
+        };
+
+        for(var i=0; i<iva.length;i++) {
+            var point = iva[i][0];
+            var elements = iva[i][1];
+
+            // Erste Ebene
+            if(typeof elements == 'object') {
+                var uElements = [];
+
+                for(var u=0; u<elements.length;u++) {
+                    var element = elements[u];
+
+                    // Zweite Ebene
+                    if(typeof element[1] == 'number') {
+
+                        window.sum.last = window.sum.last+element[2];
+                        window.sum.now = window.sum.now+element[1];
+
+                        uElements.push(['', '', '', '']);
+                        uElements.push([{text: element[0], margin: [10,0,0,0]}, '', {text: fp(element[1]),alignment:'right'}, {text: fp(element[2]),alignment:'right'}])
+
+                    } else if(typeof element[1] == 'object') {
+                        // Dritte
+                        var sElements = [];
+
+                        var summand = {
+                            now: 0,
+                            last: 0
+                        };
+                        var summ = element[1].length > 1;
+
+                        for(var s=0; s<element[1].length; s++) {
+                            var sElement = element[1][s];
+
+                            window.sum.last = window.sum.last+sElement[2];
+                            window.sum.now = window.sum.now+sElement[1];
+
+                            sElements.push(['', '', '', '']);
+                            if(summ) {
+                                sElements.push([{text: sElement[0], margin: [20, 0, 0, 0]}, {text: fp(sElement[1]),alignment:'right'}, '', {text: fp(sElement[2]),alignment:'right'}]);
+                                summand.now += sElement[1];
+                                summand.last += sElement[2];
+                            } else {
+                                sElements.push([{text: sElement[0], margin: [20, 0, 0, 0]}, '', {text: fp(sElement[1]),alignment:'right'}, {text: fp(sElement[2]),alignment:'right'}]);
+                            }
+                        }
+
+                        if(summ) {
+                            sElements.push([{text: '', margin: [0, 0, 0, 20]}, '', {text: '    '+fp(summand.now), style: ['summand', 'currency']}, {text: '    '+fp(summand.last), style: ['summand', 'currency']}]);
+                        }
+                        uElements.push([{text: element[0], margin: [10, 10, 0, 0], bold: true}, '', '', '']);
+                        uElements = uElements.concat(sElements);
+                    }
+                }
+
+                arr.push([{text: point, margin: [0, 10, 0, 0], bold: true}, '', '', '']);
+                arr = arr.concat(uElements);
+
+            } else if (typeof elements == 'number' || typeof elements == 'int') {
+                window.sum.last = window.sum.last+iva[i][2];
+                window.sum.now = window.sum.now+iva[i][1];
+                arr.push([{text: iva[i][0], margin: [0, 10, 0, 0], bold: true}, '', {text: fp(iva[i][1]),alignment:'right', margin: [0, 10, 0, 0]}, {text: fp(iva[i][2]),alignment:'right', margin: [0, 10, 0, 0]}]);
+            }
+        }
+
+        return {
+            content: arr,
+            summary: [
+                ['', '', {text: fp(window.sum.now), style: 'currency', bold: true, decoration: 'underline', decorationStyle: 'double'}, {text: fp(window.sum.last), style: 'currency', bold: true, decoration: 'underline', decorationStyle: 'double'}]
+            ]
+        };
+    }
+
+    passiva = formatIvas(passiva, 'Passiva');
+    aktiva = formatIvas(aktiva, 'Aktiva');
+
+    var table = {
+        width: ['*', 70, 70, 70],
+        summandLine: {text: '                           ', decoration: 'underline', alignment: 'center'}
+    };
+
+    var dd = {
+        pageSize: 'A3',
+        pageOrientation: 'landscape',
+
+        content: [
+            {text: data.company, bold: true},
+            {text: 'Bilanz zum '+data.to_pretty, bold: true, margin: [0, 0, 0, 20]},
+            {columns: [
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: aktiva.content
+                        },
+                        layout: 'headerLineOnly'
+                    }
+                ],
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: passiva.content
+                        },
+                        layout: 'headerLineOnly'
+                    }
+                ]
+            ],
+                // optional space between columns
+                columnGap: 20
+            },
+            '\n\n',
+            {columns: [
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: [['', '', table.summandLine, {text: '                           ', decoration: 'underline', alignment: 'center'}]]
+                        },
+                        layout: 'noBorders'
+                    }
+                ],
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: [['', '', {text: '                           ', decoration: 'underline', alignment: 'center'}, {text: '                           ', decoration: 'underline', alignment: 'center'}]]
+                        },
+                        layout: 'noBorders'
+                    }
+                ]
+            ],
+                // optional space between columns
+                columnGap: 20
+            },
+            {text: '\n', fontSize: 0, lineHeight: 0},
+            {columns: [
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: aktiva.summary
+                        },
+                        layout: 'noBorders'
+                    }
+                ],
+                [
+                    {
+                        width: '50%',
+                        style: 'tableExample',
+                        table: {
+                            widths: table.width,
+                            headerRows: 1,
+                            body: passiva.summary
+                        },
+                        layout: 'noBorders'
+                    },
+                    {text: data.signature, margin: [0, 50, 0, 0], alignment: 'left'}
+                ]
+            ],
+                // optional space between columns
+                columnGap: 20
+            }
+        ],
+
+        styles: {
+            underline: {
+                border: [false, false, false, true]
+            },
+            tableExample: {
+                fontSize: 10
+            },
+            summand: {
+                decoration: 'underline',
+                decorationStyle: 'dotted'
+            },
+            currency: {
+                alignment: 'right'
+            }
+        }
+    };
+
+    pdfMake.createPdf(dd).getDataUrl(function (outDoc) {
+        document.getElementById('preview').src = outDoc;
+    });
+</script>
             
         <footer id="footer">
             <div class="container">
@@ -169,6 +405,6 @@
                     }
                 }
             </script>
-                        </footer>
+                    </footer>
     </body>
 </html>
